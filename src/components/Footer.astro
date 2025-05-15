@@ -1,5 +1,6 @@
 ---
 import { Facebook, Instagram, Twitter, Linkedin, FolderSync, ChevronUp, Mail, MapPin, Phone } from '@lucide/astro';
+import Logo from "../assets/img/white-logo.svg"
 ---
 
 <footer class="relative bg-gradient-to-br from-[#4250D8] to-[#4250D8] text-white overflow-hidden">
@@ -30,7 +31,7 @@ import { Facebook, Instagram, Twitter, Linkedin, FolderSync, ChevronUp, Mail, Ma
       <!-- Company Info -->
       <div class="space-y-6">
         <div class="flex items-center">
-          <img src="/src/assets/img/white-logo.svg" alt="logo">
+          <img src={Logo.src} alt="logo">
         </div>
         <p class="text-white/80 text-base max-w-xs">
           The all-in-one solution for managing your business operations efficiently and effectively.

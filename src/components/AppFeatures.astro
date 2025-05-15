@@ -1,5 +1,12 @@
 ---
 import { ArrowRight } from "lucide-astro";
+import Payroll from '../assets/img/payroll.png';
+import CalendarPage from '../assets/img/calendar-page.png';
+import EmployeesPage from '../assets/img/employees-page.png';
+import ListView from '../assets/img/list-view.png';
+import KanbanView from '../assets/img/kanban-view.png';
+import RecruitmentPage from '../assets/img/recruitment-page.png';
+
 
 // src/components/FeatureTabs.astro
 const tabs = [
@@ -14,7 +21,7 @@ const tabs = [
       'Monthly, quarterly, and yearly financial reporting',
       'Bonus and deduction management',
     ],
-    imageSrc: '/src/assets/img/payroll.png',
+    imageSrc: Payroll,
     imageAlt: 'Harmony Payroll Dashboard',
     learnMoreText: 'Learn more about payroll features',
   },
@@ -29,7 +36,7 @@ const tabs = [
       'Automated notifications and reminders',
       'Team availability tracking and conflict prevention',
     ],
-    imageSrc: '/src/assets/img/calendar-page.png',
+    imageSrc: CalendarPage,
     imageAlt: 'Harmony Schedule Calendar',
     learnMoreText: 'Learn more about scheduling features',
   },
@@ -44,7 +51,7 @@ const tabs = [
       'Quick access to contact information and profiles',
       'Bulk employee data import and export',
     ],
-    imageSrc: '/src/assets/img/employees-page.png',
+    imageSrc: EmployeesPage,
     imageAlt: 'Harmony Employee Directory',
     learnMoreText: 'Learn more about employee management',
   },
@@ -60,7 +67,7 @@ const tabs = [
       "Progress tracking with visual indicators",
       "Customizable workflow stages for different project types",
     ],
-    imageSrc: "/src/assets/img/list-view.png",
+    imageSrc: ListView,
     imageAlt: "Harmony Project Management List View",
     learnMoreText: "Learn more about project management features",
   },
@@ -76,7 +83,7 @@ const tabs = [
       "Visual cards with task details and assignees",
       "Column-based task counts and workload visualization",
     ],
-    imageSrc: "/src/assets/img/kanban-view.png",
+    imageSrc: KanbanView,
     imageAlt: "Harmony Kanban Board View",
     learnMoreText: "Learn more about kanban features",
   },
@@ -92,11 +99,12 @@ const tabs = [
       "Work type indicators (Remote, Hybrid, On-site)",
       "Applicant tracking and hiring pipeline management",
     ],
-    imageSrc: "/src/assets/img/recruitment-page.png",
+    imageSrc: RecruitmentPage,
     imageAlt: "Harmony Recruitment Page",
     learnMoreText: "Learn more about recruitment features",
   },
 ];
+
 
 const activeTab = Astro.props.activeTab || tabs[0].id;
 ---
@@ -185,7 +193,7 @@ const activeTab = Astro.props.activeTab || tabs[0].id;
                 <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-300 opacity-20 rounded-full"></div>
                 <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
                   <img 
-                    src={tab.imageSrc} 
+                    src={tab.imageSrc.src} 
                     alt={tab.imageAlt} 
                     class="w-full h-auto rounded-lg"
                   />

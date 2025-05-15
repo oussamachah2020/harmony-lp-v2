@@ -1,0 +1,265 @@
+---
+import { ArrowRight } from "lucide-astro";
+
+// src/components/FeatureTabs.astro
+const tabs = [
+  {
+    id: 'payroll',
+    title: 'Payroll Management',
+    heading: 'Comprehensive Payroll Dashboard',
+    description: 'Streamline your payroll process with our powerful and intuitive dashboard. Track revenue, expenses, and payroll distribution with real-time data visualization.',
+    features: [
+      'Automated salary calculations and tax deductions',
+      'Department-wise payroll distribution analytics',
+      'Monthly, quarterly, and yearly financial reporting',
+      'Bonus and deduction management',
+    ],
+    imageSrc: '/src/assets/img/payroll.png',
+    imageAlt: 'Harmony Payroll Dashboard',
+    learnMoreText: 'Learn more about payroll features',
+  },
+  {
+    id: 'schedule',
+    title: 'Team Scheduling',
+    heading: 'Intuitive Team Scheduling',
+    description: "Plan and organize your team's schedule with our flexible calendar system. Manage meetings, events, and appointments with color-coded visual organization.",
+    features: [
+      'Color-coded events by department or category',
+      'Drag-and-drop event scheduling and management',
+      'Automated notifications and reminders',
+      'Team availability tracking and conflict prevention',
+    ],
+    imageSrc: '/src/assets/img/calendar-page.png',
+    imageAlt: 'Harmony Schedule Calendar',
+    learnMoreText: 'Learn more about scheduling features',
+  },
+  {
+    id: 'employees',
+    title: 'Employee Directory',
+    heading: 'Complete Employee Management',
+    description: 'Maintain a comprehensive employee directory with all the information you need to manage your team effectively.',
+    features: [
+      'Centralized employee information database',
+      'Department-based organization and filtering',
+      'Quick access to contact information and profiles',
+      'Bulk employee data import and export',
+    ],
+    imageSrc: '/src/assets/img/employees-page.png',
+    imageAlt: 'Harmony Employee Directory',
+    learnMoreText: 'Learn more about employee management',
+  },
+  {
+    id: "projects",
+    title: "Project Management",
+    heading: "Flexible Project Management",
+    description:
+      "Manage your projects with flexible views and powerful organization tools. Switch between list and kanban views to visualize your workflow in the way that works best for your team.",
+    features: [
+      "List and Kanban board views for task management",
+      "Task filtering and sorting by status, priority, and assignee",
+      "Progress tracking with visual indicators",
+      "Customizable workflow stages for different project types",
+    ],
+    imageSrc: "/src/assets/img/list-view.png",
+    imageAlt: "Harmony Project Management List View",
+    learnMoreText: "Learn more about project management features",
+  },
+  {
+    id: "kanban",
+    title: "Kanban Boards",
+    heading: "Visual Kanban Workflow",
+    description:
+      "Visualize your workflow with customizable kanban boards. Drag and drop tasks between columns to update status and keep your team aligned on priorities and progress.",
+    features: [
+      "Drag-and-drop interface for updating task status",
+      "Customizable columns for different workflow stages",
+      "Visual cards with task details and assignees",
+      "Column-based task counts and workload visualization",
+    ],
+    imageSrc: "/src/assets/img/kanban-view.png",
+    imageAlt: "Harmony Kanban Board View",
+    learnMoreText: "Learn more about kanban features",
+  },
+  {
+    id: "recruitment",
+    title: "Recruitment",
+    heading: "Streamlined Recruitment Process",
+    description:
+      "Manage your entire recruitment process from job posting to hiring. Track applicants, schedule interviews, and collaborate with your hiring team all in one place.",
+    features: [
+      "Job posting management with application deadlines",
+      "Department-based job categorization",
+      "Work type indicators (Remote, Hybrid, On-site)",
+      "Applicant tracking and hiring pipeline management",
+    ],
+    imageSrc: "/src/assets/img/recruitment-page.png",
+    imageAlt: "Harmony Recruitment Page",
+    learnMoreText: "Learn more about recruitment features",
+  },
+];
+
+const activeTab = Astro.props.activeTab || tabs[0].id;
+---
+
+<section id="app-features" class="py-20 relative overflow-hidden">
+  <!-- Background elements -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white"></div>
+    <div class="absolute top-20 left-10 w-64 h-64 bg-primary opacity-5 rounded-full"></div>
+    <div class="absolute bottom-20 right-10 w-80 h-80 bg-primary opacity-5 rounded-full"></div>
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(#4250D8 1px, transparent 1px); background-size: 20px 20px;"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <!-- Header -->
+    <div class="text-center">
+      <div class="inline-block">
+        <span class="inline-flex items-center px-4 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary">
+          <svg class="mr-1.5 h-2 w-2 text-primary" fill="currentColor" viewBox="0 0 8 8">
+            <circle cx="4" cy="4" r="3" />
+          </svg>
+          Platform Features
+        </span>
+      </div>
+      <h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Powerful modules for complete business management
+      </h2>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+        Harmony brings together all the tools you need to run your business efficiently in one integrated platform.
+      </p>
+    </div>
+
+    <!-- Feature Tabs -->
+    <div class="mt-16">
+      <div class="border-b border-gray-200">
+        <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+          {tabs.map((tab) => (
+            <button
+              id={`tab-${tab.id}`}
+              class={`tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
+                activeTab === tab.id
+                  ? 'border-primary text-primary'
+                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+              }`}
+              data-tab={tab.id}
+            >
+              {tab.title}
+            </button>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="mt-8 tab-content-wrapper">
+        {tabs.map((tab) => (
+          <div
+            id={`content-${tab.id}`}
+            class={`tab-content ${activeTab === tab.id ? 'active' : ''}`}
+            data-tab={tab.id}
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">{tab.heading}</h3>
+                <p class="text-gray-600 mb-6">{tab.description}</p>
+                <ul class="space-y-4">
+                  {tab.features.map((feature) => (
+                    <li class="flex">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div class="mt-8">
+                  <a href="#" class="inline-flex items-center text-primary hover:text-primary-dark">
+                    <span class="text-sm font-medium">{tab.learnMoreText}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="absolute -top-4 -right-4 w-20 h-20 bg-primary-200 opacity-30 rounded-lg rotate-12"></div>
+                <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-primary-300 opacity-20 rounded-full"></div>
+                <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl">
+                  <img 
+                    src={tab.imageSrc} 
+                    alt={tab.imageAlt} 
+                    class="w-full h-auto rounded-lg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bottom CTA -->
+      <div class="mt-16 text-center">
+        <a href="#waitlist" class="inline-flex gap-3 items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-[#4250D8] hover:bg-primary-dark transition-colors">
+          Join the waitlist for early access
+          <ArrowRight class="h-5 w-5"/>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    let isSwitching = false;
+
+    const activateTab = (tabId) => {
+      // Deactivate all buttons
+      tabButtons.forEach(btn => {
+        btn.classList.remove('border-primary', 'text-primary');
+        btn.classList.add('border-transparent', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+      });
+
+      // Deactivate all contents
+      tabContents.forEach(content => {
+        content.classList.remove('active');
+      });
+
+      // Activate selected tab button
+      const selectedButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+      if (selectedButton) {
+        selectedButton.classList.add('border-primary', 'text-primary');
+        selectedButton.classList.remove('border-transparent', 'text-gray-500');
+      }
+
+      // Activate corresponding content
+      const selectedContent = document.querySelector(`.tab-content[data-tab="${tabId}"]`);
+      if (selectedContent) {
+        selectedContent.classList.add('active');
+      }
+    };
+
+    // Handle click events
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const tabId = button.dataset.tab;
+        if (isSwitching || button.classList.contains('border-primary')) return;
+        isSwitching = true;
+
+        activateTab(tabId);
+        history.pushState({}, '', `#${tabId}`);
+
+        // Small timeout to prevent spam clicking
+        setTimeout(() => {
+          isSwitching = false;
+        }, 300);
+      });
+    });
+
+    // Handle hash-based activation on load
+    const initialTabId = window.location.hash?.substring(1);
+    if (initialTabId && document.querySelector(`.tab-content[data-tab="${initialTabId}"]`)) {
+      activateTab(initialTabId);
+    }
+  });
+</script>

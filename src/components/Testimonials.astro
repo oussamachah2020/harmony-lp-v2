@@ -1,0 +1,192 @@
+---
+import { ChevronLeft, ChevronRight } from "lucide-astro";
+
+const testimonials = [
+	{
+		content: "Harmony has transformed how we manage our business. The integrated approach saves us countless hours every week.",
+		author: "Sarah Johnson",
+		role: "CEO, TechStart Inc."
+	},
+	{
+		content: "The payroll and scheduling features alone are worth the investment. Our HR team is now 50% more efficient.",
+		author: "Michael Chen",
+		role: "HR Director, GrowthCorp"
+	},
+	{
+		content: "We've tried many management tools, but Harmony is the first one that truly delivers on the promise of an all-in-one solution.",
+		author: "Jessica Williams",
+		role: "Operations Manager, Innovate LLC"
+	},
+	{
+		content: "Since implementing Harmony, our project completion rate has increased by 35%. The team collaboration tools are exceptional.",
+		author: "David Rodriguez",
+		role: "Project Manager, BuildRight Co."
+	},
+	{
+		content: "The analytics dashboard gives us insights we never had before. We're making better business decisions every day.",
+		author: "Emily Nguyen",
+		role: "Analytics Director, DataDrive"
+	}
+];
+---
+
+<section id="testimonials" class="py-20 bg-white relative overflow-hidden">
+	<!-- Background elements -->
+	<div class="absolute inset-0 -z-10">
+		<div class="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white"></div>
+		
+		<!-- Decorative quote marks -->
+		<div class="absolute top-20 left-10 text-9xl text-gray-100 opacity-50 font-serif hidden md:block">"</div>
+		<div class="absolute bottom-20 right-10 text-9xl text-gray-100 opacity-50 font-serif hidden md:block">"</div>
+	</div>
+
+	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center">
+			<div class="inline-block">
+				<span class="inline-flex mb-3 items-center px-4 py-1 rounded-full text-sm font-medium bg-[#4250D8]/10 text-[#4250D8]">
+					<svg class="mr-1.5 h-2 w-2 text-[#4250D8]" fill="currentColor" viewBox="0 0 8 8">
+					  <circle cx="4" cy="4" r="3" />
+					</svg>
+					Testimonials
+				  </span>
+			</div>
+			<h2 class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+				Trusted by businesses worldwide
+			</h2>
+			<p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+				Don't just take our word for it. Here's what our customers have to say.
+			</p>
+		</div>
+
+		<!-- Simple Carousel Implementation -->
+		<div class="mt-16">
+			<div id="testimonial-carousel" class="relative mx-auto max-w-3xl">
+				<!-- Testimonial Slides -->
+				{testimonials.map((testimonial, index) => (
+					<div class={`testimonial-slide ${index === 0 ? 'active' : ''}`}>
+						<div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100">
+							<div class="h-2 w-10 bg-primary mb-6 rounded"></div>
+							<p class="text-gray-700 text-lg md:text-xl leading-relaxed mb-8">"{testimonial.content}"</p>
+							<div class="text-lg font-semibold text-gray-900">{testimonial.author}</div>
+							<div class="text-primary">{testimonial.role}</div>
+						</div>
+					</div>
+				))}
+				
+				<!-- Navigation Arrows -->
+				<button id="prev-btn" class="absolute top-1/2 left-0 lg:-left-5 -translate-y-1/2 -translate-x-5 md:-translate-x-10 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all z-10">
+					<ChevronLeft class="h-6 w-6"/>
+				</button>
+				<button id="next-btn" class="absolute top-1/2 right-0 lg:-right-5 -translate-y-1/2 translate-x-5 md:translate-x-10 w-12 h-12 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all z-10">
+					<ChevronRight class="h-6 w-6"/>
+				</button>
+			</div>
+			
+			<!-- Carousel Indicators -->
+			<div class="flex justify-center mt-8 space-x-2">
+				{testimonials.map((_, index) => (
+					<button class={`carousel-dot w-3 h-3 rounded-full transition-colors ${index === 0 ? 'bg-primary' : 'bg-gray-300'}`} data-index={index}></button>
+				))}
+			</div>
+		</div>
+		
+		<!-- Testimonial Stats -->
+		<div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+			<div class="p-4">
+				<div class="text-4xl font-bold text-primary mb-2">500+</div>
+				<div class="text-gray-600">Happy Customers</div>
+			</div>
+			<div class="p-4">
+				<div class="text-4xl font-bold text-primary mb-2">98%</div>
+				<div class="text-gray-600">Satisfaction Rate</div>
+			</div>
+			<div class="p-4">
+				<div class="text-4xl font-bold text-primary mb-2">40%</div>
+				<div class="text-gray-600">Productivity Boost</div>
+			</div>
+			<div class="p-4">
+				<div class="text-4xl font-bold text-primary mb-2">24/7</div>
+				<div class="text-gray-600">Customer Support</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script >
+	document.addEventListener('DOMContentLoaded', function() {
+		const slides = document.querySelectorAll('.testimonial-slide');
+		const dots = document.querySelectorAll('.carousel-dot');
+		const prevBtn = document.getElementById('prev-btn');
+		const nextBtn = document.getElementById('next-btn');
+		
+		if (!slides.length || !dots.length || !prevBtn || !nextBtn) {
+			console.error('Carousel elements not found');
+			return;
+		}
+		
+		let currentIndex = 0;
+		let interval: number | NodeJS.Timeout;
+		
+		function showSlide(index: number) {
+			if (index < 0) index = slides.length - 1;
+			if (index >= slides.length) index = 0;
+			
+			currentIndex = index;
+			
+			slides.forEach((slide, i) => {
+				slide.classList.toggle('active', i === currentIndex);
+			});
+			
+			dots.forEach((dot, i) => {
+				dot.classList.toggle('bg-primary', i === currentIndex);
+				dot.classList.toggle('bg-gray-300', i !== currentIndex);
+			});
+		}
+		
+		prevBtn.addEventListener('click', () => {
+			showSlide(currentIndex - 1);
+			resetInterval();
+		});
+		
+		nextBtn.addEventListener('click', () => {
+			showSlide(currentIndex + 1);
+			resetInterval();
+		});
+		
+		dots.forEach((dot, i) => {
+			dot.addEventListener('click', () => {
+				showSlide(i);
+				resetInterval();
+			});
+		});
+		
+		function startInterval() {
+			interval = setInterval(() => {
+				showSlide(currentIndex + 1);
+			}, 5000);
+		}
+		
+		function resetInterval() {
+			clearInterval(interval);
+			startInterval();
+		}
+		
+		startInterval();
+		
+		const carousel = document.getElementById('testimonial-carousel');
+		carousel?.addEventListener('mouseenter', () => clearInterval(interval));
+		carousel?.addEventListener('mouseleave', startInterval);
+		
+		document.addEventListener('keydown', (e) => {
+			if (e.key === 'ArrowLeft') {
+				showSlide(currentIndex - 1);
+				resetInterval();
+			} else if (e.key === 'ArrowRight') {
+				showSlide(currentIndex + 1);
+				resetInterval();
+			}
+		});
+		
+		showSlide(0);
+			});
+</script>

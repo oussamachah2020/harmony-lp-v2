@@ -1,0 +1,131 @@
+---
+import { Facebook, Instagram, Twitter, Linkedin, FolderSync, ChevronUp, Mail, MapPin, Phone } from '@lucide/astro';
+---
+
+<footer class="relative bg-gradient-to-br from-[#4250D8] to-[#4250D8] text-white overflow-hidden">
+  <!-- Decorative Elements -->
+  <div class="absolute inset-0 -z-10 opacity-10">
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white to-transparent"></div>
+    
+    <!-- Dot pattern -->
+    <div class="absolute inset-0" style="background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px); background-size: 20px 20px;"></div>
+    
+    <!-- Decorative shapes -->
+    <div class="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-white opacity-5"></div>
+    <div class="absolute -bottom-40 -left-20 w-80 h-80 rounded-full bg-white opacity-5"></div>
+  </div>
+
+  <!-- Back to top button -->
+
+
+  <div class="w-full lg:w-[90%] mx-auto pt-16 pb-12 px-4 sm:px-6 lg:px-8">
+    <div class="absolute bottom-10 right-3  -translate-x-1/2 -translate-y-1/2">
+      <a href="#top" class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white text-primary shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
+        <ChevronUp class="h-6 w-6 text-black" />
+      </a>
+    </div>
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+      <!-- Company Info -->
+      <div class="space-y-6">
+        <div class="flex items-center">
+          <img src="/src/assets/img/white-logo.svg" alt="logo">
+        </div>
+        <p class="text-white/80 text-base max-w-xs">
+          The all-in-one solution for managing your business operations efficiently and effectively.
+        </p>
+        <div class="flex space-x-4">
+          <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200" aria-label="Facebook">
+            <Facebook class="h-5 w-5" />
+          </a>
+          <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200" aria-label="Instagram">
+            <Instagram class="h-5 w-5" />
+          </a>
+          <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200" aria-label="Twitter">
+            <Twitter class="h-5 w-5" />
+          </a>
+          <a href="#" class="bg-white/10 hover:bg-white/20 p-2 rounded-full transition-colors duration-200" aria-label="LinkedIn">
+            <Linkedin class="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-6">
+        <h3 class="text-lg font-semibold">Quick Links</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Features</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Pricing</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Integrations</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Updates</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>About</a></li>
+          </ul>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Documentation</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Guides</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>API Status</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Blog</a></li>
+            <li><a href="#" class="text-white/80 hover:text-white transition-colors duration-200 flex items-center"><span class="w-1.5 h-1.5 bg-white/60 rounded-full mr-2"></span>Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-6">
+        <h3 class="text-lg font-semibold">Contact Us</h3>
+        <ul class="space-y-4">
+          <!-- <li class="flex items-start">
+            <MapPin class="h-5 w-5 mr-3 mt-0.5 text-white/70" />
+            <span class="text-white/80">123 Business Avenue, Suite 100<br />San Francisco, CA 94107</span>
+          </li> -->
+          <li class="flex items-center">
+            <Phone class="h-5 w-5 mr-3 text-white/70" />
+            <span class="text-white/80">+212 6 53 64 30 01</span>
+          </li>
+          <li class="flex items-center">
+            <Mail class="h-5 w-5 mr-3 text-white/70" />
+            <span class="text-white/80">harmonymanager2024@gmail.com</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="space-y-6">
+        <h3 class="text-lg font-semibold">Subscribe to Our Newsletter</h3>
+        <p class="text-white/80">Get the latest news and updates delivered to your inbox.</p>
+        <form class="mt-4">
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="px-4 py-2.5 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/50 text-white placeholder-white/50 flex-grow"
+              required
+            />
+            <button
+              type="submit"
+              class="bg-white text-[#4250D8] font-medium px-4 py-2.5 rounded-lg hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap"
+            >
+              Subscribe
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="mt-12 pt-8 border-t border-white/20">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-white/70 text-sm">
+          &copy; {new Date().getFullYear()} Harmony. All rights reserved.
+        </p>
+        <div class="mt-4 md:mt-0 flex space-x-6">
+          <a href="#" class="text-white/70 hover:text-white text-sm">Privacy Policy</a>
+          <a href="#" class="text-white/70 hover:text-white text-sm">Terms of Service</a>
+          <a href="#" class="text-white/70 hover:text-white text-sm">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

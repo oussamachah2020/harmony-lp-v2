@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Header from "../components/Header.astro"
+import Hero from "../components/Hero.astro"
+import Features from "../components/Features.astro"
+// import Workflow from "../components/workflow.astro"
+import AppFeatures from "../components/AppFeatures.astro"
+import Testimonials from "../components/Testimonials.astro"
+import Waitlist from "../components/WaitList"
+import Pricing from "../components/Pricing.astro"
+import CTA from "../components/CTA.astro"
+import Footer from "../components/Footer.astro"
+---
+
+<Layout title="Harmony - Business Management Platform">
+  <Header />
+  <main>
+    <Hero />
+    <Features />
+    <AppFeatures />
+    <Testimonials />
+    <Waitlist client:visible />
+    <Pricing />
+    <CTA />
+  </main>
+  <Footer />
+</Layout>

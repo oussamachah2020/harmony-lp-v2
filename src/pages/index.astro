@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import Header from "../components/Header.astro"
+import Header from "../components/Header.tsx"
 import Hero from "../components/Hero.astro"
 import Features from "../components/Features.astro"
 // import Workflow from "../components/workflow.astro"
@@ -13,7 +13,7 @@ import Footer from "../components/Footer.astro"
 ---
 
 <Layout title="Harmony - Business Management Platform">
-  <Header />
+  <Header client:visible />
   <main>
     <Hero />
     <Features />

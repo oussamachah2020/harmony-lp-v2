@@ -138,9 +138,9 @@ const activeTab = Astro.props.activeTab || tabs[0].id;
     </div>
 
     <!-- Feature Tabs -->
-    <div class="mt-16">
-      <div class="border-b border-gray-200">
-        <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+    <div class="mt-16 px-6 lg:px-0">
+      <div class="border-b border-gray-200 mx-5 lg:mx-0">
+        <nav class="-mb-px flex justify-center space-x-8 overflow-auto " aria-label="Tabs">
           {tabs.map((tab) => (
             <button
               id={`tab-${tab.id}`}

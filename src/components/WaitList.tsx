@@ -90,7 +90,7 @@ export default function WaitlistForm() {
                 Reserve your spot
               </h3>
 
-              {!success && (
+              {success && (
                 <div
                   className="p-4 mb-6 rounded-md bg-green-50 border border-green-200"
                   role="alert"

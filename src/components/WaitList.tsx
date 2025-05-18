@@ -70,9 +70,14 @@ export default function WaitlistForm() {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Improved Left Section */}
             <div className="p-10 lg:p-12">
-              <h2 className="text-3xl font-bold text-black mb-6">Get Early Access to the Future</h2>
+              <h2 className="text-3xl font-bold text-black mb-6">
+                Get Early Access to the Future
+              </h2>
               <p className="text-gray-700 leading-relaxed">
-                Join our exclusive waitlist to be among the first to experience our cutting-edge platform. Stay ahead with priority access and receive updates on game-changing features designed to transform your workflow.
+                Join our exclusive waitlist to be among the first to experience
+                our cutting-edge platform. Stay ahead with priority access and
+                receive updates on game-changing features designed to transform
+                your workflow.
               </p>
               <p className="mt-4 text-gray-600 text-sm">
                 Don’t miss out—secure your spot today!
@@ -81,11 +86,30 @@ export default function WaitlistForm() {
 
             {/* Form Section */}
             <div className="p-10 lg:p-12 bg-gray-50">
-              <h3 className="text-2xl font-bold text-black mb-6">Reserve your spot</h3>
+              <h3 className="text-2xl font-bold text-black mb-6">
+                Reserve your spot
+              </h3>
 
-              {success && (
-                <div className="p-4 mb-6 rounded-md bg-green-50" role="alert">
-                  <p className="text-green-500 font-medium">Thank you! You've been added to our waitlist.</p>
+              {!success && (
+                <div
+                  className="p-4 mb-6 rounded-md bg-green-50 border border-green-200"
+                  role="alert"
+                >
+                  <p className="text-green-700 font-semibold mb-1">
+                    ✅ You're on the waitlist!
+                  </p>
+                  <p className="text-green-600">
+                    Join our community on Discord to share ideas and get early
+                    updates:
+                    <a
+                      href="https://discord.gg/Z96uGm9w"
+                      className="ml-1 underline text-blue-600 hover:text-blue-800 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Join the Discord Server
+                    </a>
+                  </p>
                 </div>
               )}
 
@@ -97,7 +121,10 @@ export default function WaitlistForm() {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-black">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-black"
+                  >
                     Full name
                   </label>
                   <input
@@ -113,7 +140,10 @@ export default function WaitlistForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-black">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-black"
+                  >
                     Email address
                   </label>
                   <input
@@ -129,7 +159,10 @@ export default function WaitlistForm() {
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-black">
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-black"
+                  >
                     Company (optional)
                   </label>
                   <input
@@ -168,10 +201,9 @@ export default function WaitlistForm() {
                   className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-[#4250D8] hover:bg-[#2f3bbf] transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#4250D8]"
                 >
                   {loading ? (
-                    <LoaderCircleIcon className="h-5 w-5 animate-spin"/>
+                    <LoaderCircleIcon className="h-5 w-5 animate-spin" />
                   ) : (
-
-                  "Join the waitlist"
+                    "Join the waitlist"
                   )}
                 </button>
               </form>
